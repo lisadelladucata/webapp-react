@@ -1,6 +1,8 @@
 import axios from "../api/axios";
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate, Link } from "react-router";
 import { useEffect, useState } from "react";
+import Heading from "../components/ui/Heading";
+import Stars from "../components/ui/Stars";
 
 export default function MoviePage() {
   const [movie, setMovie] = useState({});
@@ -22,5 +24,34 @@ export default function MoviePage() {
 
   useEffect(fetchMovie, [id, navigate]);
 
-  return <h1>{movie.title}</h1>;
+  return (
+    <>
+      <div className="container">
+        <div className="row">
+          <div className="col-card">
+            <img src={movie.image} alt={movie.title} />
+            <div className="info">
+              <Heading level={1}>{movie.title}</Heading>
+              <Heading level={2}>{movie.director}</Heading>
+              <p>{movie.abstract}</p>
+              <Heading level={5}>
+                {movie.genre} - {movie.release_year}
+              </Heading>
+            </div>
+          </div>
+          <div className="col-review">
+            <Heading level={1}>Recensioni</Heading>
+            {movie?.reviews?.map((review) => (
+              <div key={review.id}>
+                <Heading level={3}>{review.name}</Heading>
+                <Stars vote={review.vote} />
+                <p>{review.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <Link to="/">Torna alla Home</Link>
+      </div>
+    </>
+  );
 }
