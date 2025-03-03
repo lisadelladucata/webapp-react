@@ -37,11 +37,19 @@ BUTTONS
 HEADER
 ***********/
 header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #1c1c1c;
   padding: 20px 10px;
   position: sticky;
   top: 0;
+}
+
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
 
 /***********
@@ -52,6 +60,7 @@ footer {
   justify-content: space-between;
   align-items: center;
   background-color: #1c1c1c;
+  padding: 10px 20px;
 }
 footer .social {
   display: flex;
@@ -80,7 +89,13 @@ HOMEPAGE
   height: 580px;
 }
 
-.col p,
+.col p {
+  padding: 10px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .col-card p {
   padding: 10px 0px;
 }
@@ -91,9 +106,6 @@ HOMEPAGE
   border-radius: 20px;
 }
 
-.btn {
-  text-align: center;
-}
 /***********
 MOVIEPAGE
 ***********/
@@ -146,6 +158,23 @@ FORM
 
 .new-review {
   width: 100%;
+}
+
+/***********
+CREATE FORM
+***********/
+.new-film {
+  font-size: 18px;
+  text-align: center;
+  height: 68vh;
+  padding-top: 60px;
+}
+
+.new-film label,
+.new-film button {
+  display: block;
+  width: 100%;
+  padding: 5px;
 }
 
 /* *********

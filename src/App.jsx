@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import MoviePage from "./pages/MoviePage";
 import PageNotFound from "./pages/PageNotFound";
 import DesignSystem from "./pages/DesignSystem";
+import CreateMovie from "./pages/CreateMovie";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/design-system" element={<DesignSystem />} />
         <Route element={<DefaultLayout />}>
           <Route index path="/" element={<HomePage />} />
+          <Route path="/movies/create" element={<CreateMovie />} />
           <Route path="/movies/:id" element={<MoviePage />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>

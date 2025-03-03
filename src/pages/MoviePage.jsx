@@ -1,5 +1,5 @@
 import axios from "../api/axios";
-import { useParams, useNavigate, Link } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import Heading from "../components/ui/Heading";
 import Review from "../components/Review";
@@ -55,7 +55,6 @@ export default function MoviePage() {
             </div>
           </div>
         </div>
-        <Link to="/">Torna alla Home</Link>
       </div>
     </>
   );
