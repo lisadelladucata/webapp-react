@@ -2,7 +2,8 @@ import axios from "../api/axios";
 import { useParams, useNavigate, Link } from "react-router";
 import { useEffect, useState } from "react";
 import Heading from "../components/ui/Heading";
-import Stars from "../components/ui/Stars";
+import Review from "../components/Review";
+import FormReview from "../components/FormReview";
 
 export default function MoviePage() {
   const [movie, setMovie] = useState({});
@@ -39,15 +40,19 @@ export default function MoviePage() {
               </Heading>
             </div>
           </div>
-          <div className="col-review">
+          <div className="col-review info">
             <Heading level={1}>Recensioni</Heading>
             {movie?.reviews?.map((review) => (
               <div key={review.id}>
-                <Heading level={3}>{review.name}</Heading>
-                <Stars vote={review.vote} />
-                <p>{review.text}</p>
+                <Review review={review} />
               </div>
             ))}
+          </div>
+          <div className="new-review info">
+            <Heading level={2}>Aggiungi Recensione</Heading>
+            <div className="form">
+              <FormReview fetchMovie={fetchMovie} />
+            </div>
           </div>
         </div>
         <Link to="/">Torna alla Home</Link>
